@@ -11,6 +11,35 @@ Hem d'ésser conscients de que **qualsevol** servei que intentem exposar a Inter
 
 També cal notar que **no hi ha servei exposat segur**, encara que ens centrem en maximitzar la seguretat del mateix, sempre estarem exposts, en major o menor escala.
 
+## Sobre el Homelab
+
+El meu Homelab per ara consta de la seguent infraestructura.
+
+- 2x Switch TP-Link TL-SG3210 V1
+  - 8x Ports Ethernet 1Gbps
+  - 2x Ports SFP 1Gbps
+- 1x Dell Optiplex 790 SFF
+    - Intel Core2 Duo 8500
+    - 6Gb RAM 1600Mtps Kingston ValueRAM
+- 1x Servidor de màquines virtuals
+  - Intel Core i5 3310 
+  - 16Gb RAM 1866Mtps Kingston HyperX
+  - 120Gb SSD Kingston 400
+  - 2x Realtek 1Gbps NIC
+  - 1x GeForce GTX 1050 Ti
+
+## Característiques i serveis
+
+### Serveis actuals
+- [x] PFSense
+- [x] XCP-NG
+- [X] Xen Orchestra Appliance
+- [X] pfBlockerNG
+- []  Caddy
+- []  Plex
+
+### Serveis futurs
+- []  TrueNAS
 
 ### Markdown
 
