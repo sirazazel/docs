@@ -33,13 +33,16 @@ El meu Homelab per ara consta de la seguent infraestructura.
 ### Serveis actuals
 - [x] PFSense
 - [x] XCP-NG
-- [X] Xen Orchestra Appliance
+- [X] Xen Orchestra virtual Appliance
 - [X] pfBlockerNG
-- []  Caddy
-- []  Plex
+- [ ] Caddy
+- [ ] Plex
 
 ### Serveis futurs
 - []  TrueNAS
+
+## Stack de tecnologies
+
 
 ### Markdown
 
