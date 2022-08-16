@@ -37,12 +37,27 @@ El meu Homelab per ara consta de la seguent infraestructura.
 - [X] pfBlockerNG
 - [ ] Caddy
 - [ ] Plex
-
+- [ ] Prometheus
+- [ ] Grafana
+- [ ] Snort
 ### Serveis futurs
 - []  TrueNAS
 
 ## Stack de tecnologies
 
+|   | Servei                  | Descripció                                                                                      |
+|---|-------------------------|-------------------------------------------------------------------------------------------------|
+|   | pfSense                 | Conjunt de serveis Router i Firewall de codi obert.                                             |
+|   | tp-link web ui          | WebUI emprada per a configurar ambdós switch.                                                   |
+|   | XCP-NG                  | Versió Open Source del Citrix Hypervisor. Hosteja tots els nostres serveis excepte el Firewall. |
+|   | Xen Orchestra Community | Eina de gestió web del servidor de màquines virtuals.                                           |
+|   | pfBlockerNG             | Eina de bloqueig de llistes IP i DNS.                                                           |
+|   | Namecheap               | Registrar del domini.                                                                           |
+|   | Cloudflare              | Protecció en front atacs de denegació de servei, túnel, reverse proxy i Servidor DNS.           |
+|   | Fedora CoreOS           | Sistema operatiu base per les màquines virtuals de contenidors.                                 |
+|   | Debian                  | Sistema operatiu per la VM de Xen Orchestra Community.                                          |
+|   | Caddy                   | Servidor web i Proxy invers.                                                                    |
+|   | Let's Encrypt           | CA per TLS                                                                                      |
 
 ### Markdown
 
