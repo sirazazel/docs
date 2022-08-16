@@ -1,8 +1,16 @@
-## Welcome to GitHub Pages
+#  Exposant serveis a Internet de manera segura.
 
-You can use the [editor on GitHub](https://github.com/sirazazel/espardenya.cloud/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Aquest projecte està dedicat a oferir alguns serveis web des d'un "Homelab". 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+> ### Què es un "Homelab"?
+>És tenir un (o alguns) servidors a casa on es podrà experimentar amb noves tecnologies a petita escala, allotjar llocs o serveis web tant en l'àmbit local com a Internet.
+
+## Què comporta exposar un servei a Internet?
+
+Hem d'ésser conscients de que **qualsevol** servei que intentem exposar a Internet, comportarà notables perills per a la integritat de la nostra xarxa, i per això, exposem el que exposem, haurem d'assegurar-lo de manera adient.
+
+També cal notar que **no hi ha servei exposat segur**, encara que ens centrem en maximitzar la seguretat del mateix, sempre estarem exposts, en major o menor escala.
+
 
 ### Markdown
 
