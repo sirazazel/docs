@@ -1,1 +1,1 @@
-# espardenya.cloud server configurations
+# espardenya.cloud
