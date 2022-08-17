@@ -35,7 +35,7 @@ El meu Homelab per ara consta de la seguent infraestructura.
 - [x] XCP-NG
 - [X] Xen Orchestra virtual Appliance
 - [X] pfBlockerNG
-- [ ] Caddy
+- [X] Caddy
 - [ ] Plex
 - [ ] Prometheus
 - [ ] Grafana
@@ -47,17 +47,17 @@ El meu Homelab per ara consta de la seguent infraestructura.
 
 |   | Servei                  | Descripció                                                                                      |
 |---|-------------------------|-------------------------------------------------------------------------------------------------|
-|   | pfSense                 | Conjunt de serveis Router i Firewall de codi obert.                                             |
-|   | tp-link web ui          | WebUI emprada per a configurar ambdós switch.                                                   |
-|   | XCP-NG                  | Versió Open Source del Citrix Hypervisor. Hosteja tots els nostres serveis excepte el Firewall. |
-|   | Xen Orchestra Community | Eina de gestió web del servidor de màquines virtuals.                                           |
-|   | pfBlockerNG             | Eina de bloqueig de llistes IP i DNS.                                                           |
-|   | Namecheap               | Registrar del domini.                                                                           |
-|   | Cloudflare              | Protecció en front atacs de denegació de servei, túnel, reverse proxy i Servidor DNS.           |
-|   | Fedora CoreOS           | Sistema operatiu base per les màquines virtuals de contenidors.                                 |
-|   | Debian                  | Sistema operatiu per la VM de Xen Orchestra Community.                                          |
-|   | Caddy                   | Servidor web i Proxy invers.                                                                    |
-|   | Let's Encrypt           | CA per TLS                                                                                      |
+|<img src="assets\logos\pfSenselogo.png" alt="drawing" width="100"/>| pfSense| Conjunt de serveis Router i Firewall de codi obert.|
+|<img src="assets\logos\tplinklogo.png" alt="drawing" width="100"/>| tp-link web ui| WebUI emprada per a configurar ambdós switch.|
+|<img src="assets\logos\xcplogo.png" alt="drawing" width="30"/>| XCP-NG| Versió Open Source del Citrix Hypervisor. Hosteja tots els nostres serveis excepte el Firewall.|
+|<img src="assets\logos\xologo.png" alt="drawing" width="30"/>| Xen Orchestra Community | Eina de gestió web del servidor de màquines virtuals.|
+|<img src="assets\logos\pfBlockerlogo.png" alt="drawing" width="30"/>| pfBlockerNG             | Eina de bloqueig de llistes IP i DNS.|
+|<img src="assets\logos\namecheaplogo.png" alt="drawing" width="100"/>| Namecheap               | Registrar del domini.|
+|<img src="assets\logos\cloudflarelogo.png" alt="drawing" width="90"/>| Cloudflare              | Protecció en front atacs de denegació de servei, túnel, reverse proxy i Servidor DNS.|
+|<img src="assets\logos\fedora-coreos-logo.png" alt="drawing" width="80"/>| Fedora CoreOS           | Sistema operatiu base per les màquines virtuals de contenidors.|
+|<img src="assets\logos\debianlogo.png" alt="drawing" width="100"/>| Debian                  | Sistema operatiu per la VM de Xen Orchestra Community.|
+|<img src="assets\logos\caddylogo.png" alt="drawing" width="100"/>| Caddy                   | Servidor web i Proxy invers.|
+|<img src="assets\logos\letsencrypt.png" alt="drawing" width="100"/>| Let's Encrypt           | CA per TLS|
 
 ### Markdown
 
