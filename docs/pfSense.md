@@ -44,4 +44,29 @@ Marcant PPPoE a l'apartat de l'interfície WAN, i inserint l'usuari i contrassen
 
 # Xarxa local - LAN1
 
-El nostre Router està connectat a Internet, però, i els nostres dispositius?
+El nostre Router està connectat a Internet, però, i els nostres dispositius? Mai trobaràn cap xarxa disponible ja que encara no l'hem configurat.
+
+Ens posicionarem a sobre l'apartat Interfícies / LAN, activarem l'interfície i li assignarem una subxarxa.
+
+<img src="assets\images\lan1.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="700"/>
+
+Hem aplicat la direcció IP 10.0.74.1/24 al nostre PFSense, així que estem emprant la subxarxa 10.0.74.0 amb màscara 255.255.255.0.
+
+Anem a configurar el servidor DHCP per a que els nostres dispositius puguin connectar-se a la xarxa de manera automàtica.
+
+> ## Apunt: DHCP
+> DHCP és un protocol que ens permet assignar de manera dinàmica una IP a cada dispositiu de la nostra xarxa, emprant una arquitectura semblant a una client-servidor, així eliminant la necessitat d'anar assignant-los un a un. 
+>
+> El dispositiu client enviarà un paquet broadcast (a tots els dispositius de la xarxa) avisant de que està connectat i disponible per a rebre una direcció.
+> Si el servidor DHCP reb aquest missatge, li reservarà una direcció IP i li enviarà una oferta per a la "DHCP Lease". Aquesta oferta conté la IP del router, la IP del servidor DHCP, la màscara de subxarxa, el temps de *lease* i la direcció del client.
+> El dispositiu client enviarà només al servidor DHCP un datagrama *Request* per a acceptar l'adreça oferida, i el servidor contestarà amb un datagrama *Ack* per a confirmar que la direcció ha estat assignada de manera correcta.
+>
+><img src="assets\images\DHCP_session.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="300"/>
+
+Per a configurar DHCP a l'interfície LAN, anirem al menú Services > DHCP Server, i seleccionarem LAN.
+
+<img src="assets\images\dhcp1.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="700"/>
+
+Podem veure el rang d'IP's que el servidor DHCP ens pot servir, i seleccionar un grapat de direccions, o tot el rang.
+
+En el meu cas, he escollit un rang des del 10.0.74.128 fins al 10.0.74.192 ja que he reservat totes les demés direccions cap a DHCP static mappings (és a dir, assignar una IP estàtica a un dispositiu emprant el protocol DHCP.).
