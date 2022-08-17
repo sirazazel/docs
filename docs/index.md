@@ -40,6 +40,7 @@ El meu Homelab per ara consta de la seguent infraestructura.
 - [ ] Prometheus
 - [ ] Grafana
 - [ ] Snort
+
 ### Serveis futurs
 - [ ]  TrueNAS
 
