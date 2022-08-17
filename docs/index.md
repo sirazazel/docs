@@ -41,7 +41,7 @@ El meu Homelab per ara consta de la seguent infraestructura.
 - [ ] Grafana
 - [ ] Snort
 ### Serveis futurs
-- []  TrueNAS
+- [ ]  TrueNAS
 
 ## Stack de tecnologies
 
@@ -51,42 +51,11 @@ El meu Homelab per ara consta de la seguent infraestructura.
 |<img src="assets\logos\tplinklogo.png" alt="drawing" width="100"/>| tp-link web ui| WebUI emprada per a configurar ambdós switch.|
 |<img src="assets\logos\xcplogo.png" alt="drawing" width="30"/>| XCP-NG| Versió Open Source del Citrix Hypervisor. Hosteja tots els nostres serveis excepte el Firewall.|
 |<img src="assets\logos\xologo.png" alt="drawing" width="30"/>| Xen Orchestra Community | Eina de gestió web del servidor de màquines virtuals.|
-|<img src="assets\logos\pfBlockerlogo.png" alt="drawing" width="30"/>| pfBlockerNG             | Eina de bloqueig de llistes IP i DNS.|
-|<img src="assets\logos\namecheaplogo.png" alt="drawing" width="100"/>| Namecheap               | Registrar del domini.|
-|<img src="assets\logos\cloudflarelogo.png" alt="drawing" width="90"/>| Cloudflare              | Protecció en front atacs de denegació de servei, túnel, reverse proxy i Servidor DNS.|
-|<img src="assets\logos\fedora-coreos-logo.png" alt="drawing" width="80"/>| Fedora CoreOS           | Sistema operatiu base per les màquines virtuals de contenidors.|
-|<img src="assets\logos\debianlogo.png" alt="drawing" width="100"/>| Debian                  | Sistema operatiu per la VM de Xen Orchestra Community.|
-|<img src="assets\logos\caddylogo.png" alt="drawing" width="100"/>| Caddy                   | Servidor web i Proxy invers.|
-|<img src="assets\logos\letsencrypt.png" alt="drawing" width="100"/>| Let's Encrypt           | CA per TLS|
+|<img src="assets\logos\pfBlockerlogo.png" alt="drawing" width="30"/>| pfBlockerNG| Eina de bloqueig de llistes IP i DNS.|
+|<img src="assets\logos\namecheaplogo.png" alt="drawing" width="100"/>| Namecheap| Registrar del domini.|
+|<img src="assets\logos\cloudflarelogo.png" alt="drawing" width="90"/>| Cloudflare| Protecció en front atacs de denegació de servei, túnel, reverse proxy i Servidor DNS.|
+|<img src="assets\logos\fedora-coreos-logo.png" alt="drawing" width="80"/> | Fedora CoreOS| Sistema operatiu base per les màquines virtuals de contenidors.|
+|<img src="assets\logos\debianlogo.png" alt="drawing" width="100"/>| Debian | Sistema operatiu per la VM de Xen Orchestra Community.|
+|<img src="assets\logos\caddylogo.png" alt="drawing" width="100"/>| Caddy | Servidor web i Proxy invers.|
+|<img src="assets\logos\letsencrypt.png" alt="drawing" width="100"/>| Let's Encrypt | CA per TLS|
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/sirazazel/espardenya.cloud/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
