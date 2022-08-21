@@ -1,3 +1,22 @@
+---
+layout: default
+title: Xen Orchestra
+parent: Hipervisor
+nav_order: 2
+---
+
+# Buttons
+{: .no_toc }
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
+
 Instalar XOA from sources
 # que es xoa
 XOA is a virtual machine with Xen Orchestra already installed, thus intended to work out-of-the-box. The only dependency is a running Xen/XCP-ng hypervisor host with network and storage configurations. There is a bash script to be executed on the hypervisor shell which will download VM appliance and create a new Virtual Machine from it.
