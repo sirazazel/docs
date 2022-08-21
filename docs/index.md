@@ -1,9 +1,6 @@
 #  Exposant serveis a Internet de manera segura.
 
-Aquest projecte està dedicat a oferir alguns serveis web des d'un "Homelab". 
-
-> ### Què es un "Homelab"?
->És tenir un (o alguns) servidors a casa on es podrà experimentar amb noves tecnologies a petita escala, allotjar llocs o serveis web tant en l'àmbit local com a Internet.
+Aquest projecte està dedicat a oferir alguns serveis web públics i evaluar la seva seguretat.
 
 ## Què comporta exposar un servei a Internet?
 
@@ -11,9 +8,9 @@ Hem d'ésser conscients de que **qualsevol** servei que intentem exposar a Inter
 
 També cal notar que **no hi ha servei exposat segur**, encara que ens centrem en maximitzar la seguretat del mateix, sempre estarem exposts, en major o menor escala.
 
-## Sobre el Homelab
+## Sobre la infraestructura del projecte
 
-El meu Homelab per ara consta de la seguent infraestructura.
+Per ara aquest projecte consta de la seguent infraestructura.
 
 - 2x Switch TP-Link TL-SG3210 V1
   - 8x Ports Ethernet 1Gbps
@@ -39,7 +36,7 @@ El meu Homelab per ara consta de la seguent infraestructura.
 - [ ] Plex
 - [ ] Prometheus
 - [ ] Grafana
-- [ ] Snort
+- [X] Suricata
 
 ### Serveis futurs
 - [ ]  TrueNAS
