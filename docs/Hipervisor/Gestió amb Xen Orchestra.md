@@ -19,7 +19,7 @@ cd /var/opt/diskimages
 wget "url-descarrega-sistema-preferit"
 ```
 expected result
-<img src="assets\images\xoa\wget1.png" alt="resultat wget" width="700"/>
+<img src="..\assets\images\xoa\wget1.png" alt="resultat wget" width="700"/>
 
 ## crear vm desde terminal 
 creació vm
@@ -170,14 +170,14 @@ key = './key.pem'
 emprarem ssl autofirmat, per tant comentam la línia port = 80, ```yarn start``` i ja podem anar a https://172.16.0.20
  expected output:
 
- <img src="assets\images\xoa\xoa1.png" alt="projecte compilat" width="700"/>
- <img src="assets\images\xoa\xoa2.png" alt="web" width="700"/>
+ <img src="..\assets\images\xoa\xoa1.png" alt="projecte compilat" width="700"/>
+ <img src="..\assets\images\xoa\xoa2.png" alt="web" width="700"/>
 
  això es feo, per tant anirem a crear una entrada al dns resolver de pfSense
- <img src="assets\images\xoa\xoa3.png" alt="creació entrada dns" width="700"/>
+ <img src="..\assets\images\xoa\xoa3.png" alt="creació entrada dns" width="700"/>
  abaix de tot d'aquest menú podem afegir entrades al nostre dns resolver (unbound)
- <img src="assets\images\xoa\xoa4.png" alt="creació entrada dns" width="700"/>
- <img src="assets\images\xoa\xoa5.png" alt="creació entrada dns" width="700"/>
+ <img src="..\assets\images\xoa\xoa4.png" alt="creació entrada dns" width="700"/>
+ <img src="..\assets\images\xoa\xoa5.png" alt="creació entrada dns" width="700"/>
 
 ea
 
@@ -185,16 +185,16 @@ ea
 
 # connexió amb xcp-ng
 
- <img src="assets\images\xoa\conectarServer.png" alt="conexió xcp-ng" width="700"/>
+ <img src="..\assets\images\xoa\conectarServer.png" alt="conexió xcp-ng" width="700"/>
 
 rellenem els camps i apretam Connect, ens donarà error per certificat autofirmat
 
-<img src="assets\images\xoa\conectarServer2.png" alt="conexió xcp-ng" width="700"/>
+<img src="..\assets\images\xoa\conectarServer2.png" alt="conexió xcp-ng" width="700"/>
 
 acceptem i listos
 
-<img src="assets\images\xoa\conectarServer3.png" alt="conexió xcp-ng" width="700"/>
+<img src="..\assets\images\xoa\conectarServer3.png" alt="conexió xcp-ng" width="700"/>
 
 ja podrem gestionar des d'aquí totes les vm del nostre servidor
 
-<img src="assets\images\xoa\orchestra.png" alt="conexió xcp-ng" width="700"/>
+<img src="..\assets\images\xoa\orchestra.png" alt="conexió xcp-ng" width="700"/>
