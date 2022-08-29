@@ -1,3 +1,9 @@
+---
+layout: default
+title: Firewall
+has_children: true
+nav_order: 1
+---
 # PFSense: Com ens connectem a Internet?
 
 PFSense es un software dedicat a complir les funcions de router i firewall. El 

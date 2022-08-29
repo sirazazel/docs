@@ -1,3 +1,10 @@
+---
+layout: default
+title: Configuració de la xarxa
+has_children: True
+nav_order: 2
+---
+
 # Configuració de la xarxa
 
 Abans de començar, hem de planificar una mica com serà el disseny de la xarxa sobre la qual montarem el nostre homelab.

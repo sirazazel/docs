@@ -1,3 +1,10 @@
+---
+layout: default
+title: Exposem serveis a Internet
+has_children: false
+nav_order: 1
+---
+
 #  Exposant serveis a Internet de manera segura.
 
 Aquest projecte està dedicat a oferir alguns serveis web públics i evaluar la seva seguretat.
