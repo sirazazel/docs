@@ -2,7 +2,7 @@
 layout: default
 title: Firewall
 has_children: true
-nav_order: 1
+nav_order: 2
 ---
 # PFSense: Com ens connectem a Internet?
 
