@@ -85,58 +85,49 @@ Un cop modificat, la màquina està llesta per a ser arrancada i instal·lada mi
 xe vm-start uuid=$UUID
 ```
 
-## descarregar i compilar projecte
-un pic a debian instalar node.js com admin
+## Arrancada de la màquina virtual i preparatius
+
+Xen Orchestra necessita certes dependències, que les podem resoldre instal·lant des del packet manager de la nostra distribució escollida.
 
 ```bash
 apt install curl
 curl -fsSL https://deb.nodesource.com/setup_[num darrera versió] | bash -
 apt install -y nodejs
 apt install -y build-essential
-```
-
-instalar yarn
-
-```bash
+apt install -y redis-server libpng-dev git python3-minimal libvhdi-utils lvm2 cifs-utils
 npm install --global yarn
 ```
 
-instalar dependencies
-```bash
-apt install -y redis-server libpng-dev git python3-minimal libvhdi-utils lvm2 cifs-utils
-```
+Emprarem Git per a descarregar el projecte Orchestra. El millor seria compilar i executar Orchestra en un perfil no privilegiat, però si ho feim d'aquesta manera no podrem accedir als ports 80 ni 443, ni montar cap NFS Share. Podríem emprar un port no conegut, i crear els shares per SSH, però per a fer-ho més simple emprarem el port 443 en un usuari amb privilegis adients.
 
-You need to use the git source code manager to fetch the code. Ideally, you should run XO as a non-root user, and if you choose to, you need to set up sudo to be able to mount NFS remotes. As your chosen non-root (or root) user, run the following:
-
-root té acces a ports 80 i 443, non-root no. lo seu seria algun port random pero for the sake of simplicity port 80 i arreando
 ```bash
-cd /home
+cd "/directori-escollit"
 git clone -b master https://github.com/vatesfr/xen-orchestra
 cd xen-orchestra
 yarn
 yarn build
 ```
-yarn instala dependencies de node.js i yarn build compila el projecte 
 
-ojo! minim de ram 2Gb, amb estándar 1Gb:
-```bash
-FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory 
-```
-:(
-## configuració projecte
-per designar que xo escolti port :80:
+Un pic executat, ```yarn``` ens ha instal·lat totes les dependències del projecte, i ```yarn build``` ens ha compilat el projecte amb tots els components adients.
+
+## Configuració del servei web
+
+Totes les configuracions bàsiques que vulguem fer al servidor web que allotjarà l'eina XOA, es faràn modificant el seguent fitxer d'exemple.
 
 ```bash
 cd packages/xo-server
 vim sample.config.toml
 ```
-modificam sample.config.toml i el guardam com config.toml amb les nostres configuracions
+
+Hem de modificar el fitxer ```sample.config.toml``` amb les configuracions adients i guardar-lo com a ```config.toml```, al directori ```~/.config/xo-server```
+
 ```bash
 mkdir -p ~/.config/xo-server
 cp config.toml ~/.config/xo-server/config.toml
 ```
 
-revisar que port = 80 estigui descomentat
+Per a la meva configuració, vull que el meu XOA escolti al port 443 i emplei un certificat TLS 1.3 autosignat, per tant, m'asseguraré de que l'opció del port 80 estigui comentada
+
 ```toml
 # Basic HTTP.
 [[http.listen]]
@@ -150,10 +141,10 @@ revisar que port = 80 estigui descomentat
 # Port on which the server is listening on.
 #
 # Default: undefined
-port = 80
+# port = 80
 ```
 
-o bé, si volem certificat autofirmat:
+I les opcions d'HTTPS bàsic descomentades.
 
 ```toml
 # # Basic HTTPS.
@@ -185,35 +176,28 @@ cert = './certificate.pem'
 # # Default: undefined
 key = './key.pem'
 ```
-
-emprarem ssl autofirmat, per tant comentam la línia port = 80, ```yarn start``` i ja podem anar a https://172.16.0.20
- expected output:
+Ja podem executar el projecte, emprant la comanda ```yarn start```, i anar a la direcció IP que hagem configurat per a la màquina per a accedir al servei.
 
  <img src="..\assets\images\xoa\xoa1.png" alt="projecte compilat" width="700"/>
  <img src="..\assets\images\xoa\xoa2.png" alt="web" width="700"/>
 
- això es feo, per tant anirem a crear una entrada al dns resolver de pfSense
+## Entrada a Unbound
+
+És complicat recordar direccions IP, i més poguent aprofitar les característiques del nostre PFSense. Anem a configurar una entrada al DNS Resolver per a poder entrar a la Virtual Appliance amb una direcció URL estàndard privada.
+
+Entrarem al Router, a Services > DNS Resolver.
  <img src="..\assets\images\xoa\xoa3.png" alt="creació entrada dns" width="700"/>
- abaix de tot d'aquest menú podem afegir entrades al nostre dns resolver (unbound)
+Baixarem al final del tot, on ens sortirà l'opció de crear una nova entrada al DNS.
  <img src="..\assets\images\xoa\xoa4.png" alt="creació entrada dns" width="700"/>
+A partir d'ara les petiicions a orchestra.espardenya.local resoldràn a la IP assignada (172.16.0.20),
  <img src="..\assets\images\xoa\xoa5.png" alt="creació entrada dns" width="700"/>
 
-ea
-
-## certificats a pfSense pq ja no digui que son autofirmats?
-
-# connexió amb xcp-ng
-
- <img src="..\assets\images\xoa\conectarServer.png" alt="conexió xcp-ng" width="700"/>
-
-rellenem els camps i apretam Connect, ens donarà error per certificat autofirmat
-
-<img src="..\assets\images\xoa\conectarServer2.png" alt="conexió xcp-ng" width="700"/>
-
-acceptem i listos
-
+# Connectar la Virtual Appliance al servidor XCP-ng
+Per a poder gestionar els servidors o nodes a XCP-ng, els hem d'afegir. Serà tan senzil com 
+clicar Add server i afegir les dades que ens demanen.
+<img src="..\assets\images\xoa\conectarServer.png" alt="conexió xcp-ng" width="700"/>
 <img src="..\assets\images\xoa\conectarServer3.png" alt="conexió xcp-ng" width="700"/>
-
-ja podrem gestionar des d'aquí totes les vm del nostre servidor
-
+Com que el certificat SSL no és públic sinó autosignat, Orchestra ens demanarà si l'acceptem igualment abans de carregar totes les dades.
+<img src="..\assets\images\xoa\conectarServer2.png" alt="conexió xcp-ng" width="700"/>
+Un pic acceptat ja podrem gestionar el servidor.
 <img src="..\assets\images\xoa\orchestra.png" alt="conexió xcp-ng" width="700"/>
