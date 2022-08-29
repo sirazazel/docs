@@ -4,6 +4,7 @@ title: Firewall
 has_children: true
 nav_order: 2
 ---
+
 # PFSense: Com ens connectem a Internet?
 
 PFSense es un software dedicat a complir les funcions de router i firewall. El 
@@ -75,7 +76,7 @@ Anem a configurar el servidor DHCP per a que els nostres dispositius puguin conn
 > Si el servidor DHCP reb aquest missatge, li reservarà una direcció IP i li enviarà una oferta per a la "DHCP Lease". Aquesta oferta conté la IP del router, la IP del servidor DHCP, la màscara de subxarxa, el temps de *lease* i la direcció del client.
 > El dispositiu client enviarà només al servidor DHCP un datagrama *Request* per a acceptar l'adreça oferida, i el servidor contestarà amb un datagrama *Ack* per a confirmar que la direcció ha estat assignada de manera correcta.
 >
-><img src="..\assets\images\pfSense\DHCP_session.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="300"/>
+><img src="..\assets\images\pfSense\DHCP_session.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="300" style="display: block; margin-left: auto; margin-right: auto;"/>
 
 Per a configurar DHCP a l'interfície LAN, anirem al menú Services > DHCP Server, i seleccionarem LAN.
 
