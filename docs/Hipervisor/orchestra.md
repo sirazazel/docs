@@ -5,12 +5,17 @@ parent: Hipervisor
 nav_order: 2
 ---
 
+# Xen Orchestra: Com gestionar les màquines virtuals del nostre hipervisor.
 
-Instalar XOA from sources
-# que es xoa
-XOA is a virtual machine with Xen Orchestra already installed, thus intended to work out-of-the-box. The only dependency is a running Xen/XCP-ng hypervisor host with network and storage configurations. There is a bash script to be executed on the hypervisor shell which will download VM appliance and create a new Virtual Machine from it.
-# creació primera vm
-## Crear SR amb isos on afegir sa iso de debian
+Xen Orchestra Appliance, que anomenarem XOA a partir d'ara, és l'eina de gestió oficial de l'hipervisor XCP-ng. Funciona com una màquina virtual dins el nostre servidor, a la que accedirem tant per SSH si necessitàssim fer algun tipus de manteniment al sistema, com pels ports 80 o 443, on mitjançant una eina web, podrem gestionar per complet totes les màquines virtuals del nostre servidor.
+
+XOA és Open Source també, però amb una versió de pagament que s'autoinstal·la desde XCP-ng. En el nostre cas, com que volem emprar la versió gratuita, compilarem XOA des del codi font, que podrem trobar [a Github](https://github.com/vatesfr/xen-orchestra).
+
+Per tant, necessitarem crear una màquina virtual amb el sistema Linux que s'adapti a les nostres necessitats. Jo he elegit Debian 11, ja que es un sistema complet i estable però amb els paquets mínims, no vull afegir dependències innecessàries al sistema. 
+
+# Anem a crear una VM desde xe-cli
+## Obtenir el medi d'instal·lació
+Primer de tot, necessitarem el medi d'instal·lació del nostre sistema base. XCP-ng ens permetrà crear Storage Resources (SR) que són carpetes amb informació que pot ésser compartida entre el host i les màquines virtuals. Al host, en crearem una anomenada "Base ISO Images" per als medis d'instal·lació. 
 
 ```bash
 mkdir /var/opt/diskimages
@@ -20,42 +25,47 @@ xe sr-create name-label="$sr_name" type=iso device-config:location="$sr_path" \
 device-config:legacy_mode=true content-type=iso
     >el-teu-sr-guid
 ```
-Afegir ISO a SR
+
+Un cop hem creat la SR, podem descarregar la ISO emprant els programes ```curl``` o ```wget```. A CentOS, que és el sistema base de XCP-ng, podrem emprar wget sense haver d'instal·lar el paquet, ja que ve preinstal·lat.
 
 ```bash
 cd /var/opt/diskimages
 wget "url-descarrega-sistema-preferit"
 ```
-expected result
+Un cop descarregat, veurem algun missatge similar a aquest al terminal.
 <img src="..\assets\images\xoa\wget1.png" alt="resultat wget" width="700"/>
 
-## crear vm desde terminal 
-creació vm
+## Maquetar la VM des d'una plantilla 
+
+XCP-ng disposa de plantilles estàndard que ens crearàn una VM amb els requisits mínims per a funcionar amb el sistema que li diguis. Ens és molt útil, ja que així ens asseguram de que no ens deixam res per configurar.
+
+Buscarem i instal·larem una plantilla de Debian amb les seguents comandes:
 ```bash
 xe template-list | grep name-label | grep -i 11
     > name-label ( RW): Debian Bullseye 11
 xe vm-install template="Debian Bullseye 11" new-name-label="XOA"
     > el-teu-vm-uuid
 ```
-guardar uuid, nom, xarxa i iso en variables per fer tot mes facil
+
+Anem a personalitzar la plantilla amb els requisits per executar-hi XOA.
+Primer de tot, guardarem algunes dades com a variables d'entorn per a fer-nos la vida més senzilla.
 
 ```bash
 UUID=el-teu-uuid
 NAME=la-teva-name-label
+```
+La comanda ```xe cd-list``` ens llistarà el nom de les ISO que estàn disponibles dins un SR, i la comanda ```xe network-list``` ens donarà la UUID de les xarxes a les que puguem afegir màquines virtuals.
+```bash
 ISO="nom-arxiu-iso.iso"
 NETWORK="uuid-xarxa"
 ```
-tip: ```xe cd-list``` printa les isos disponibles actualment
-el mateix passa amb ```xe network-list```
-
-cercam uuid del disc que hem creat amb el vm-install i el guardam com a variable també
+Hem d'obtenir el disc virtual bàsic que ens ha creat la plantilla de Debian per a ampliar-lo a 15Gb, que és el que ens recomana Xen Orchestra. El podem cercar de la seguent manera:
 
 ```bash
 xe vm-disk-list vm="$NAME"
 VDI="el-teu-disk-uuid"
 ```
-configuració parametres vm
-
+Amb les anteriors dades recollides, podem modificar la màquina virtual plantilla i adaptar-la al nostre ús.
 ```bash
 xe vm-cd-add uuid="$UUID" cd-name=$ISO device=1
 # seleccionam mv amb uuid guardat i inserim el disc d'instal·lació de debian
@@ -68,11 +78,12 @@ xe vm-memory-limits-set static-max 2000MiB static-min=512MiB
 xe vdi-resize uuid=$VDI disk-size=15GiB
 # ampliam disc a 15 Gb, el mínim per XOA
 ```
-un pic fet això podem arrancar la màquina amb 
+
+Un cop modificat, la màquina està llesta per a ser arrancada i instal·lada mitjançant VNC o SSH
+
 ```bash
 xe vm-start uuid=$UUID
 ```
-i connectar-nos a traves de VNC
 
 ## descarregar i compilar projecte
 un pic a debian instalar node.js com admin

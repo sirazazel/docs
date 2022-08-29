@@ -43,10 +43,10 @@ Un pic feta la instal·lació, el servidor és utilitzable tant vía SSH emprant
 
 <img src="..\assets\images\xcp\sshaccess.png" alt="resultat wget" width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
 
-Com podem veure, mitjançant SSH podrem fer absolutament totes les gestions necessàries per a començar a crear màquines virtuals i gestionar les mateixes. A l'apartat [Creem una màquina virtual de Xen Orchestra](./Gesti%C3%B3%20amb%20Xen%20Orchestra.html#creació-primera-vm) veurem com crear i arrancar una màquina virtual mitjançant la consola SSH.
+Com podem veure, mitjançant SSH podrem fer absolutament totes les gestions necessàries per a començar a crear màquines virtuals i gestionar les mateixes. A l'apartat [Creem una màquina virtual de Xen Orchestra](./orchestra.html#creació-primera-vm) veurem com crear i arrancar una màquina virtual mitjançant la consola SSH.
 
 Amb ```xsconsole``` entrarem a una eina de gestió GUI per a fer configuracions bàsiques al servidor. Ja sigui canviar la direcció IP del servidor, com crear una nova "Storage Pool" per a màquines virtuals ho podrem fer des d'aquí.
 
 <img src="..\assets\images\xcp\xsconsole.png" alt="resultat wget" width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
 
-Totes aquestes opcions per a gestionar el servidor són vàlides, però el més senzill es emprar l'eina de gestió oficial [Xen Orchestra](.\Gesti%C3%B3%20amb%20Xen%20Orchestra.html#crear-vm-desde-terminal), o eines de tercers com xcp-ng Center, que és un programa de gestió de Windows que es connecta al servidor XCP.
+Totes aquestes opcions per a gestionar el servidor són vàlides, però el més senzill es emprar l'eina de gestió oficial [Xen Orchestra](.\orchestra.html#crear-vm-desde-terminal), o eines de tercers com xcp-ng Center, que és un programa de gestió de Windows que es connecta al servidor XCP.

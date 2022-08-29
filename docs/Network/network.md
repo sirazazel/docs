@@ -20,13 +20,13 @@ Per una xarxa estàndard, aquest dispositiu tot-en-un és capaç de dur a terme 
 
 Un esquema ideal seria el seguent:
 
-<img src="assets\images\network\network-ideal.png" alt="drawing" width="400"/>
+<img src="..\assets\images\network\network-ideal.png" alt="Diagrama de xarxa estàndard" width="400"/>
 
 On el router de la companyia és delegat a fer només la funció de módem, i està connectat al nostre router i firewall pfSense. Del mateix, surt una interfaç LAN connectada a un Switch, que ens interconnectarà tots els nostres dispositius (Ordinadors, AP's, Servidors, IoT, etc..)
 
 A la realitat i per limitacions del hardware, el meu esquema es veu així:
 
-<img src="assets\images\network\network-real.png" alt="drawing" width="400"/>
+<img src="..\assets\images\network\network-real.png" alt="Diagrama de xarxa Router-on-a-stick" width="400"/>
 
 Degut a la limitació de només un NIC del Dell Optiplex 790 que estic emprant com a Router PFSense, necessitarem trobar una manera de tenir una interfaç d'entrada a Internet i una cap a la nostra xarxa privada en un mateix cable. Aquesta configuració es diu Router-On-A-Stick, i s'aconsegueix mitjançant VLANs.
 
