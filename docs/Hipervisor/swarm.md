@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Xen Orchestra
+title: Docker Hosts
 parent: Hipervisor
-nav_order: 2
+nav_order: 3
 ---
