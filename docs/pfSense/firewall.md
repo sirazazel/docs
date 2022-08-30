@@ -60,4 +60,11 @@ També sel·leccionarem a l'apartat Target IP la direcció a la que voldrem redi
 
 # pfBlocker-ng
 
+PFBlocker-NG és un paquet que ens permetrà bloquejar connexions a direccions IP basant-se en llistes públiques i privades de spammers i botnets malicioses conegudes.
+
+Primer de tot, instal·larem el paquet des de System > Package Manager > Avaliable Packages.
+<img src="..\assets\images\firewall\pfBlocker1.png" alt="Instal·lació del paquet PFBlocker-NG" width="700"/>
+
+Un pic instal·lat, ens apareixerà a Firewall > pfBlockerNG
+
 ## Bonus: Bloqueig d'anuncis, tracking i spam general a nivell de xarxa

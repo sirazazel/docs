@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Cloudflare
-parent: Configuració de la xarxa
-nav_order: 2
+parent: Firewall
+nav_order: 3
 ---
 
 # Dominis, registres DNS, i com podem rebre requests del món
