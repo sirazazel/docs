@@ -13,7 +13,7 @@ Un hipervisor és un conjunt d'eines, tant software com podríen ser de hardware
 
 En la història, han estat comuns dos tipus d'hipervisors, depenent de la seva arquitectura.
 
-<img src="..\assets\images\xcp\hyperviseur.png" alt="Esquema tipus hipervisors, a la dreta tius " width="300" style="display: block; margin-left: auto; margin-right: auto;"/>
+<img src="..\assets\images\xcp\hipervisor.png" alt="Esquema tipus hipervisors, a la dreta tius " width="300" style="display: block; margin-left: auto; margin-right: auto;"/>
 
 Coneguts com Hipervisors de tipus 1, són aquells que el "Virtual Machine Monitor" s'executa directament a sobre del hardware, fent així tots els programes i sistemes executats en aquell dispositiu siguin en un entorn virtualitzat, maximitzant els recursos que ens pot oferir la màquina. 
 
