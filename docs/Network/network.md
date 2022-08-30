@@ -1,13 +1,13 @@
 ---
 layout: default
 title: Configuració de la xarxa
-has_children: True
+has_children: false
 nav_order: 2
 ---
 
 # Configuració de la xarxa
 
-Abans de començar, hem de planificar una mica com serà el disseny de la xarxa sobre la qual montarem el nostre homelab.
+Abans de començar, hem de planificar una mica com serà el disseny de la xarxa sobre la qual montarem la nostra infraestructura.
 
 En un món ideal, ens vindrà un cable del nostre ISP (Proveïdor d'internet), que haurà d'estar connectat a una ONT de la companyia telefònica per a poder obtenir una connexió a Internet. Aquest dispositiu de la companyia de telèfons, al que malanomenarem Router a partir d'ara, complirà les 4 funcions bàsiques que necessitem d'un router:
 
@@ -37,5 +37,7 @@ L'ús de VLANs ens permetrà diferenciar entre el tràfic de sortida cap a Inter
 
 > ## Apunt: IEEE 802.1q
 > És el protocol que emprem per a etiquetar els datagrames Ethernet amb la seva tag correcta. Només insereix quatre bytes a la capçalera del datagrama entre la MAC de destí i el tamany de la payload.
-> <img src="assets\images\network\datagrama_802.11q.png" alt="Esquema de la capçalera d'una trama Ethernet" width="700"/>
+> <img src="..\assets\images\network\datagrama_802.11q.png" alt="Esquema de la capçalera d'una trama Ethernet" width="700"/>
 > Tots els dispositius que suportin connexions emprant VLAN han de ser compatibles amb aquest estàndard
+
+Emprant aquest protocol i les eines de gestió dels switch, hem segmentat la nostra xarxa per a poder mantenir el tràfic intern aïllat de l'extern, i intentar no comprometre les nostres dades. En els seguents punts, explicarem com hem creat les VLAN i quines seràn les xarxes assignades per a cada interfície virtual.
