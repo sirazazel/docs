@@ -7,10 +7,11 @@ nav_order: 3
 
 # PFSense: Com ens connectem a Internet?
 
-PFSense es un software dedicat a complir les funcions de router i firewall. El 
+PFSense es un software dedicat a complir les funcions de router i firewall. El projecte és de codi obert i està muntat sobre una distribució personalitzada de FreeBSD, així fent-la compatible amb gran varietat d'ordinadors que segueixin l'arquitectura x68.
 
+Així i tot, no totes les configuracions de hardware són compatibles, sense anar més enfora he tingut molts problemes intentant fer funcionar un NIC Realtek, i degut a la seva incompatibilitat, hem hagut de muntar el PFSense seguint la configuració Router-On-A-Stick
 
-# Router-On-A-Stick
+## Router-On-A-Stick
 
 El nostre PFSense estarà connectat a la nostra xarxa en una configuració que anomenarem Router-On-A-Stick. 
 
@@ -40,7 +41,7 @@ Un cop les VLAN han estat creades, podrem crear una interfaç virtual per cada V
 
 Ara haurem de configurar la interfície WAN com a una connexió PPPoE.
 
-> ## Apunt: PPPoE
+> ### Apunt: PPPoE
 >  PPPoE és una aplicació del protocol punt-a-punt sobre el protocol Ethernet. És el protocol encarregat de proveïr-nos d'identitat en front del nostre ISP i que ens pugui oferir una connexió de banda ampla.
 
 <img src="..\assets\images\pfSense\pppoe1.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="700"/>
@@ -49,7 +50,7 @@ Marcant PPPoE a l'apartat de l'interfície WAN, i inserint l'usuari i contrassen
 
 <img src="..\assets\images\pfSense\pppoe2.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="700"/>
 
-# Xarxa local - LAN 1
+## Xarxa local - LAN 1
 
 El nostre Router està connectat a Internet, però, i els nostres dispositius? Mai trobaràn cap xarxa disponible ja que encara no l'hem configurat.
 
@@ -59,7 +60,7 @@ Ens posicionarem a sobre l'apartat Interfícies / LAN, activarem l'interfície i
 
 Hem aplicat una IP 10.0.74.1 a l'interfície  amb una màscara /24 al nostre PFSense, que ens dona direccions per 255 dispositius.
 
-> ## Apunt: Non-routable address space
+> ### Apunt: Non-routable address space
 > Les direccions IP ipv4 escassegen. Ja no basta una direcció IP per persona, encara menys si necessitàssim una direcció per cada dispositiu. Per això, es van designar uns rangs de direccions no enrutables per poder crear sistemes autònoms interns. Aquestes direccions són les seguents
 > * 10.0.0.0/8
 > * 172.16.0.0/12
@@ -69,7 +70,7 @@ Hem aplicat una IP 10.0.74.1 a l'interfície  amb una màscara /24 al nostre PFS
 
 Anem a configurar el servidor DHCP per a que els nostres dispositius puguin connectar-se a la xarxa de manera automàtica.
 
-> ## Apunt: DHCP
+> ### Apunt: DHCP
 > DHCP és un protocol que ens permet assignar de manera dinàmica una IP a cada dispositiu de la nostra xarxa, emprant una arquitectura semblant a una client-servidor, així eliminant la necessitat d'anar assignant-los un a un. 
 >
 > El dispositiu client enviarà un paquet broadcast (a tots els dispositius de la xarxa) avisant de que està connectat i disponible per a rebre una direcció.
@@ -86,7 +87,7 @@ Podem veure el rang d'IP's que el servidor DHCP ens pot servir, i seleccionar un
 
 En el meu cas, he escollit el rang .128 > .192 per a assignar dispositius mitjançant DHCP, ja que he reservat totes les demés direccions cap a DHCP static mappings (és a dir, assignar una IP estàtica a un dispositiu emprant el protocol DHCP.).
 
-# Xarxa local - OPT 1
+## Xarxa local - OPT 1
 
 La VLAN 1 (nativa) estarà dedicada als dispositius IoT i a dispositius foranis que es connectin mitjançant Wi-Fi. 
 Podrà connectar-se a Internet, però no podrà iniciar connexions a la xarxa local ni a la xarxa de serveis. La idea és separar aquí els dispositius que, per falta d'actualitzacions, falta d'interes per part del fabricant, o bé dispositius que nosaltres no poguem controlar si venen infectats ni tampoc ens interessa que entrin als nostres serveis interns, puguin accedir i posar en perill l'integritat de les nostres dades.
@@ -95,10 +96,10 @@ Podrà connectar-se a Internet, però no podrà iniciar connexions a la xarxa lo
 
 No està implantada encara.
 
-# Xarxa local - OPT 2
+## Xarxa local - OPT 2
 
 La VLAN 20 és la xarxa que contindrà els nostres serveis que oferim a Internet. Conté una subxarxa amb direcció 172.16.0.0, que serà la que emprarem pels serveis que poden estar compromesos ja que estaràn exposts al públic.
 
-# Xarxa local - OPT 3
+## Xarxa local - OPT 3
 
 La xarxa OPT3 és una xarxa interna entre les meves màquines virtuals i el reverse proxy. Mantindrà el tràfic a dins del servidor (o el clúster de servidors, si es donàs el cas.)

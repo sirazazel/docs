@@ -41,11 +41,12 @@ Per ara aquest projecte consta de la seguent infraestructura.
 - [X] pfBlockerNG
 - [X] Caddy
 - [ ] Plex
-- [ ] Prometheus
-- [ ] Grafana
+
 - [X] Suricata
 
 ### Serveis futurs
+- [ ] Prometheus
+- [ ] Grafana
 - [ ]  TrueNAS
 
 ## Stack de tecnologies

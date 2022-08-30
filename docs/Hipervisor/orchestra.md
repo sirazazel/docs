@@ -13,8 +13,8 @@ XOA és Open Source també, però amb una versió de pagament que s'autoinstal·
 
 Per tant, necessitarem crear una màquina virtual amb el sistema Linux que s'adapti a les nostres necessitats. Jo he elegit Debian 11, ja que es un sistema complet i estable però amb els paquets mínims, no vull afegir dependències innecessàries al sistema. 
 
-# Anem a crear una VM desde xe-cli
-## Obtenir el medi d'instal·lació
+## Anem a crear una VM desde xe-cli
+### Obtenir el medi d'instal·lació
 Primer de tot, necessitarem el medi d'instal·lació del nostre sistema base. XCP-ng ens permetrà crear Storage Resources (SR) que són carpetes amb informació que pot ésser compartida entre el host i les màquines virtuals. Al host, en crearem una anomenada "Base ISO Images" per als medis d'instal·lació. 
 
 ```bash
@@ -35,7 +35,7 @@ wget "url-descarrega-sistema-preferit"
 Un cop descarregat, veurem algun missatge similar a aquest al terminal.
 <img src="..\assets\images\xoa\wget1.png" alt="resultat wget" width="700"/>
 
-## Maquetar la VM des d'una plantilla 
+### Maquetar la VM des d'una plantilla 
 
 XCP-ng disposa de plantilles estàndard que ens crearàn una VM amb els requisits mínims per a funcionar amb el sistema que li diguis. Ens és molt útil, ja que així ens asseguram de que no ens deixam res per configurar.
 
@@ -85,7 +85,7 @@ Un cop modificat, la màquina està llesta per a ser arrancada i instal·lada mi
 xe vm-start uuid=$UUID
 ```
 
-## Arrancada de la màquina virtual i preparatius
+### Arrancada de la màquina virtual i preparatius
 
 Xen Orchestra necessita certes dependències, que les podem resoldre instal·lant des del packet manager de la nostra distribució escollida.
 
@@ -181,7 +181,7 @@ Ja podem executar el projecte, emprant la comanda ```yarn start```, i anar a la 
  <img src="..\assets\images\xoa\xoa1.png" alt="projecte compilat" width="700"/>
  <img src="..\assets\images\xoa\xoa2.png" alt="web" width="700"/>
 
-## Entrada a Unbound
+### Entrada a Unbound
 
 És complicat recordar direccions IP, i més poguent aprofitar les característiques del nostre PFSense. Anem a configurar una entrada al DNS Resolver per a poder entrar a la Virtual Appliance amb una direcció URL estàndard privada.
 
@@ -192,7 +192,7 @@ Baixarem al final del tot, on ens sortirà l'opció de crear una nova entrada al
 A partir d'ara les petiicions a orchestra.espardenya.local resoldràn a la IP assignada (172.16.0.20),
  <img src="..\assets\images\xoa\xoa5.png" alt="creació entrada dns" width="700"/>
 
-# Connectar la Virtual Appliance al servidor XCP-ng
+## Connectar la Virtual Appliance al servidor XCP-ng
 Per a poder gestionar els servidors o nodes a XCP-ng, els hem d'afegir. Serà tan senzil com 
 clicar Add server i afegir les dades que ens demanen.
 <img src="..\assets\images\xoa\conectarServer.png" alt="conexió xcp-ng" width="700"/>

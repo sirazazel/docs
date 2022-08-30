@@ -21,7 +21,7 @@ Ara, éssent propietaris del domini ```.espardenya.me.```, podríem redirigir el
 
 Però, nosaltres emprarem els serveis de Cloudflare.
 
-# Cloudflare: més que un registrar
+## Cloudflare: més que un registrar
 
 Així com Namecheap ens proporciona només resolució de noms, DNSSEC i poca cosa més, Cloudflare ens proporciona molts de serveis que ens permeten assegurar una mica més les peticions que ens arriben a la nostra xarxa.
 
@@ -52,7 +52,7 @@ Ara només es questió d'esperar unes hores que es faci la transferència entre 
 
 Volem mantenir la nostra IP pública privada. Això és possible gràcies al proxy que tenim disponible a Cloudflare, que  farà que la nostra direcció no la vegi ningú més que nosaltres. Aquest proxy té altres beneficis associats, com que ens assegura que totes les peticions legítimes provinguin de la direcció IP dels seus servidors, i una caché de la nostra pàgina web que ens alliberarà cert nivell de càrrega al nostre host, que no és gaire bo.
 
-> ## Apunt: DDNS
+> ### Apunt: DDNS
 > Normalment, els ISP assignen direccions de manera dinàmica emprant el protocol DHCP als seus clients. Si la nostra IP canvia, haurem d'estar atents a aquest canvi que és pràcticament imprevisible per a canviar el registre al nostre panell de control del domini.
 >
 > O bé, podem emprar un client DDNS que el que farà és monitoritzar la direcció IP pública de la nostra xarxa per a, en el moment que canvii, assignar-la al nostre gestor de noms de domini, i així automatitzar aquesta tasca i assegurar-nos una major disponbilitat.
@@ -144,6 +144,6 @@ Aquest mode, molt similar a la regla de Firewall anterior, té un llistat de pat
 
 <img src="..\assets\images\cloudflare\botfight.png" alt="Activam el mode Botfight." width="700"/>
 
-> ## Apunt: JavaScript Challenge i Captchas
+> ### Apunt: JavaScript Challenge i Captchas
 > Un Captcha és una operació que l'usuari ha de resoldre per a verificar que no es un bot. Per exemple, escollir entre fotos per a trobar el que ens demanen, operacions matemàtiques, llegir imatges, etc. A aquestes altures de la película, pràcticament tots hem resolt algún captcha en la nostra vida. Són bastant efectius en destriar el tràfic legítim dels Bots, però són molt irritants.
 > En canvi, els JS Challenges són uns processos que el JavaScript que s'executi al teu navegador ha de resoldre per a verificar que és un User Agent legítim. Son menys fiables, però així i tot són molt útils, i només ralentitzen una mica la càrrega de la pàgina web.

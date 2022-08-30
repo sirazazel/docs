@@ -35,7 +35,7 @@ Una VLAN és una xarxa virtual, que ens permetrà separar dues xarxes lògiques 
 
 L'ús de VLANs ens permetrà diferenciar entre el tràfic de sortida cap a Internet, i el tràfic intern de la nostra xarxa. Cada paquet quedarà etiquetat al header de la seva trama d'Ethernet amb un número de VLAN, i així, qualsevol router, switch de capa 2 o switch de capa 3 podrà discernir entre paquets i enviar-los a la seva destinació correcta.
 
-> ## Apunt: IEEE 802.1q
+> ### Apunt: IEEE 802.1q
 > És el protocol que emprem per a etiquetar els datagrames Ethernet amb la seva tag correcta. Només insereix quatre bytes a la capçalera del datagrama entre la MAC de destí i el tamany de la payload.
 > <img src="..\assets\images\network\datagrama_802.11q.png" alt="Esquema de la capçalera d'una trama Ethernet" width="700"/>
 > Tots els dispositius que suportin connexions emprant VLAN han de ser compatibles amb aquest estàndard
