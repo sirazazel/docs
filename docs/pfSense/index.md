@@ -89,29 +89,16 @@ En el meu cas, he escollit el rang .128 > .192 per a assignar dispositius mitjan
 # Xarxa local - OPT 1
 
 La VLAN 1 (nativa) estarà dedicada als dispositius IoT i a dispositius foranis que es connectin mitjançant Wi-Fi. 
-Podrà connectar-se a Internet, però no podrà iniciar connexions a la xarxa local ni a la xarxa de serveis.
+Podrà connectar-se a Internet, però no podrà iniciar connexions a la xarxa local ni a la xarxa de serveis. La idea és separar aquí els dispositius que, per falta d'actualitzacions, falta d'interes per part del fabricant, o bé dispositius que nosaltres no poguem controlar si venen infectats ni tampoc ens interessa que entrin als nostres serveis interns, puguin accedir i posar en perill l'integritat de les nostres dades.
 
 <img src="..\assets\images\pfSense\XarxaOPT1_1.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="700"/>
 
-No està implantada encara
+No està implantada encara.
 
 # Xarxa local - OPT 2
 
-La VLAN 20 és la xarxa que contindrà els nostres serveis que oferim a Internet.
-
-- La xarxa OPT 2 té la direcció 172.16.0.0
-- Gateway - 172.16.0.1
-- Regles firewall 
-    - Permeten tràfic a fora (Internet)
-    - No permeten tràfic originant de OPT2 cap a LAN1, ni cap a OPT1
-    - Permeten connexions als ports 22,80 i 443 originàries de LAN1
-    - Permeten connexions als ports 80 i 443 originàries dels servidors de Cloudflare.
-    <img src="..\assets\images\pfSense\XarxaOPT2_1.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="500"/>
-    - No permet cap tipus de connexió que no provingui de Cloudflare
-    <img src="..\assets\images\pfSense\XarxaOPT2_2.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="500"/>
-    <img src="..\assets\images\pfSense\XarxaOPT2_3.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="500"/>
-    <img src="..\assets\images\pfSense\XarxaOPT2_4.png" alt="Creació de VLANs al switch TP-Link TL-SG3210" width="500"/>
+La VLAN 20 és la xarxa que contindrà els nostres serveis que oferim a Internet. Conté una subxarxa amb direcció 172.16.0.0, que serà la que emprarem pels serveis que poden estar compromesos ja que estaràn exposts al públic.
 
 # Xarxa local - OPT 3
 
-La xarxa OPT3 és una xarxa interna entre les meves màquines virtuals i el reverse proxy.
+La xarxa OPT3 és una xarxa interna entre les meves màquines virtuals i el reverse proxy. Mantindrà el tràfic a dins del servidor (o el clúster de servidors, si es donàs el cas.)
