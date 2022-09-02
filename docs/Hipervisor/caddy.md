@@ -187,11 +187,7 @@ plex.espardenya.me {
 ```
 Aquesta configuració anirà repartint la càrrega entre els dos nodes de manera igualitària, canviant entre node cada 250ms i esperant resposta del node com a màxim un segon. 
 
-Anem a comprovar-ho.
-
-Apagarem ambdós contenidors a cada host, emprant ```docker-compose down```
-
-Podem veure com plex.espardenya.me no resol enlloc.
+Anem a comprovar-ho. Apagarem ambdós contenidors a cada host, emprant ```docker-compose down```. Acte seguit, podrem comprovar com plex.espardenya.me no resol enlloc.
 
 <img src="..\assets\images\caddy\reverse_proxy_prova.png" alt="Esquema tipus hipervisors, a la dreta tius " width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
 
@@ -199,8 +195,9 @@ Anem a encendre el primer servei. Funciona!
 
 <img src="..\assets\images\caddy\reverse_proxy_prova1.png" alt="Esquema tipus hipervisors, a la dreta tius " width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
 
-Ara encendrem el segon servei i apagarem el primer.
+Ara encendrem el segon servei i apagarem el primer. Comprovarem com el servei segueix resolent correctament, per tant, el balanceig de càrrega funciona.
 
 <img src="..\assets\images\caddy\reverse_proxy_prova2.png" alt="Esquema tipus hipervisors, a la dreta tius " width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
 
-El servei segueix resolent.
+### Conclusió
+Amb això, ja tenim un balanceig de càrrega establert entre els dos nodes que seràn els punts d'entrada al nostre clúster de contenidors. Així, encara que un dels managers estigui caigut, podem tenir accés al servei de manera ininterrompuda, ja que el segon mànager agafarà el rol de líder de clúster i repartirà el treball entre el nombre de nodes docker que tinguem.
