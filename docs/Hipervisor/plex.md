@@ -2,16 +2,18 @@
 layout: default
 title: Servei web
 parent: Hipervisor
-nav_order: 5
+nav_order: 4
 ---
 
-# Com montar un servei web bàsic emprant Docker Compose.
+# Com montar un servei web bàsic emprant contenidors.
 
 Volem montar un servei web de manera senzilla per a tenir un servei expost en línia on fer les nostres proves. Emprarem Plex, que és un servidor de contingut. Tant el podem usar per arxius de vídeo locals, connectant-lo a una base de dades, un disc dur amb recursos, com a gestor de subscripcions de vídeo com Netflix.
 
-Aquest servei el montarem a sobre d'un contenidor Docker.
+Aquest servei el montarem a sobre d'un contenidor Docker, què és una eina que ve preinstal·lada al sistema que esteim emprant en cada node, Fedora CoreOS. 
 
-## Docker Compose
+En el cas de que necessitàssim instal·lar-la, podem trobar els paquets i les instruccions [aquí](https://docs.docker.com/engine/install/).
+
+## Implementació del servei
 Primer de tot, crearem una carpeta anomenada "Plex" al directori que volguem, i crearem les subcarpetes necessàries per a després muntar els volums.
 
 ```bash
@@ -19,7 +21,7 @@ mkdir plex
 mkdir plex/{database,transcode,media}
 cd plex
 ```
-Després, crearem un arxiu anomenat docker-compose.yml amb aquest contingut dins.
+Després, crearem un arxiu anomenat docker-compose.yml, que definirà el servei i els contenidors que necessitarem per a implementar-lo, com es connectarà a la xarxa i quins volums muntarà per a poder funcionar.
 ```yaml
 version: '2'
 services:
@@ -47,6 +49,5 @@ services:
       - ./plex/transcode:/transcode
       - ./plex/media:/data
 ```
-És un docker-compose bastant simple. Descarrega la imatge dels repositoris oficials, exposa els ports necessaris per a que el servei funcioni i crea els volums al host per a guardar la configuració d'inici.
 
-L'executarem amb docker-compose up -d als nostres hosts, i els nostres serveis hauríen d'estar operatius a les IP assenyalades.
+L'executarem amb ```docker-compose up -d``` als nostres hosts suvstituint la variable ```ADVERTISE_IP``` per la IP del host, i els nostres serveis hauríen d'estar operatius a les IP assenyalades.

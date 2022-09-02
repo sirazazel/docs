@@ -40,8 +40,8 @@ Per ara aquest projecte consta de la seguent infraestructura.
 - [X] Xen Orchestra virtual Appliance
 - [X] pfBlockerNG
 - [X] Caddy
-- [ ] Plex
-
+- [X] Plex
+- [ ] Wordpress
 - [X] Suricata
 
 ### Serveis futurs
