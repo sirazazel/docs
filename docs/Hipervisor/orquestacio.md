@@ -218,3 +218,9 @@ La comanda ```docker stack ps nomServei``` ens mostrarà a quin node s'estàn ex
 <img src="..\assets\images\orquestacio\servicedeployed2.png" alt="arbre de directoris" width="700"/>
 
 Els mateixos nodes manager s'encarregaràn de fer un balanceig de càrrega equitatiu per a sempre mantenir 10 nodes disposats a donar el servei adient.
+
+## Conclusió
+
+Amb això, estam intentant garantitzar que el nostre servei es doni de manera continuada, aixi i tot hi hagi una situació que pugui posar en perill la seva integritat, mitjançant la capacitat del nostre sistema d'escalar i replicar-se a mida de la càrrega que se li està donant, i fer que el sistema sigui tolerant a cert nombre de fallades.
+
+Com sempre, això no vol dir que sigui infal·lible, ni molt menys, però sí que sigui més fiable.

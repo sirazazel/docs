@@ -85,6 +85,11 @@ Un cop modificat, la màquina està llesta per a ser arrancada i instal·lada mi
 xe vm-start uuid=$UUID
 ```
 
+Jo he emprat el client VNC que ve amb l'eina [XCP-ng Center](https://github.com/xcp-ng/xenadmin/releases/tag/v20.04.01.33). Es connecta directament a cada host i ens permet fer la instal·lació de manera senzilla.
+
+<img src="..\assets\images\xoa\xcp-ngcenter.png" alt="xcp-ng Center mode client vnc" width="700"/>
+
+
 ### Arrancada de la màquina virtual i preparatius
 
 Xen Orchestra necessita certes dependències, que les podem resoldre instal·lant des del packet manager de la nostra distribució escollida.
@@ -201,3 +206,29 @@ Com que el certificat SSL no és públic sinó autosignat, Orchestra ens demanar
 <img src="..\assets\images\xoa\conectarServer2.png" alt="conexió xcp-ng" width="700"/>
 Un pic acceptat ja podrem gestionar el servidor.
 <img src="..\assets\images\xoa\orchestra.png" alt="conexió xcp-ng" width="700"/>
+
+## Creació d'una màquina virtual mitjançant Xen Orchestra.
+
+Per a crear una màquina virtual nova des d'Orchestra, anirem al panell principal. Ens apareixerà el llistat de màquines virtuals com hem vist a la captura anterior, i adalt a la dreta clicarem al botó New VM.
+
+<img src="..\assets\images\xoa\vm_nova.png" alt="creacio nova vm" width="700"/>
+
+Talment hem fet amb la versió CLI, ens hem d'assegurar de descarregar la ISO d'instal·lació mitjançant curl a la SR que toca. En aquest cas, seleccionarem la iso de Debian 11 a l'apartat Install Settings, i pitjarem Create.
+
+La nostra nova màquina virtual s'autoarrancarà i apareixerà al llistat. Ja podrem clicar damunt de la màquina per anar a veure l'estat general de la mateixa.
+
+<img src="..\assets\images\xoa\vm_nova1.png" alt="estat nova vm" width="700"/>
+
+Podem anar a la pestanya Console i procedir amb l'instal·lador del sistema.
+
+<img src="..\assets\images\xoa\vm_nova2.png" alt="consola nova vm" width="700"/>
+
+A l'apartat Network, podem crear un NIC nou per si fos necessari canviar la màquina de VLAN.
+
+<img src="..\assets\images\xoa\vm_nova3.png" alt="consola nova vm" width="700"/>
+
+Jo li he assignat la interfície connectada a la VLAN 20, que correspon a la xarxa aïllada OPT2 del meu sistema.
+
+## Conclusió
+
+Xen Orchestra és una eina bastant senzilla d'emprar i molt pràctica per a gestionar el servidor XCP-ng i les màquines virtuals que s'executen a sobre. Ens fa molt més senzilla la gestió que no el sistema xe-cli que hem vist a l'apartat anterior.

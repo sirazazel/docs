@@ -43,7 +43,6 @@ services:
       - TZ=Europe/Madrid
       - PLEX_CLAIM=claim-ey6ekAqeQjosd1P
       - ADVERTISE_IP=http://172.16.0.200:32400/
-    hostname: plexserver.espardenya.me
     volumes:
       - ./plex/database:/config
       - ./plex/transcode:/transcode
@@ -51,3 +50,5 @@ services:
 ```
 
 L'executarem amb ```docker-compose up -d``` als nostres hosts suvstituint la variable ```ADVERTISE_IP``` per la IP del host, i els nostres serveis hauríen d'estar operatius a les IP assenyalades.
+
+<img src="..\assets\images\caddy\plex.png" alt="Esquema tipus hipervisors, a la dreta tius " width="700" style="display: block; margin-left: auto; margin-right: auto;"/>
