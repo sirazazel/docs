@@ -36,3 +36,21 @@ Aquest canal té informació molt bona sobre quines són les millors pràctiques
 [Docker Docs - Docker Swarm](https://docs.docker.com/engine/swarm/swarm-tutorial/create-swarm/)
 
 [Github - Docker Swarm Wordpress](https://github.com/iiriix/docker-swarm-wordpress)
+
+[Pentesting NFS Service](https://book.hacktricks.xyz/network-services-pentesting/nfs-service-pentesting)
+
+[NFS-showmount](https://nmap.org/nsedoc/scripts/nfs-showmount.html)
+
+[NFS-LS nmap](https://nmap.org/nsedoc/scripts/nfs-ls.html)
+## Repositoris d'interés
+
+[Slowloris](https://github.com/gkbrk/slowloris)
+
+[Nmap](https://github.com/nmap/nmap)
+
+[Docker Swarm Wordpress](https://github.com/iiriix/docker-swarm-wordpress)
+
+
+# Agraïments
+
+Moltes gràcies a Sandra Cabrera García per la seva ajuda i suport a l'apartat de Pentesting.
