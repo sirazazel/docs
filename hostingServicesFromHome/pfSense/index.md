@@ -2,6 +2,7 @@
 layout: default
 title: Firewall
 has_children: true
+parent: Exposem serveis a Internet
 nav_order: 3
 ---
 
