@@ -1,3 +1,4 @@
-# these are the docs of my personal projects
+# Personal projects
 
-currently in catalan only
+- [Hosting web services securely from a homelab environment](docs.sirazazel.com)
+- [Deploying the *arr stack on TrueNAS Scale]()
