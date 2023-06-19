@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Exposem serveis a Internet
-has_children: true
 nav_order: 2
 ---
 
