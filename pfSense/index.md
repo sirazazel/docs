@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Firewall.
+title: Firewall
 has_children: true
 nav_order: 3
 ---
