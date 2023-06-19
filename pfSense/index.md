@@ -2,7 +2,6 @@
 layout: default
 title: Configurar PFSense com a Router / Firewall principal.
 has_children: true
-parent: Exposem serveis a Internet
 nav_order: 3
 ---
 

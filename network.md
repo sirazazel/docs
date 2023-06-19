@@ -2,7 +2,6 @@
 layout: default
 title: Configuració de la xarxa
 has_children: false
-parent: Exposem serveis a Internet
 nav_order: 2
 ---
 

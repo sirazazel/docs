@@ -2,7 +2,6 @@
 layout: default
 title: Hipervisor
 has_children: true
-parent: Exposem serveis a Internet
 nav_order: 3
 ---
 

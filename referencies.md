@@ -2,7 +2,6 @@
 layout: default
 title: Referències
 has_children: false
-parent: Exposem serveis a Internet
 nav_order: 6
 ---
 
