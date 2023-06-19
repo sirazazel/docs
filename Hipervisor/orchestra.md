@@ -2,7 +2,6 @@
 layout: default
 title: Xen Orchestra
 parent: Hipervisor
-grand_parent: Exposem serveis a Internet
 nav_order: 2
 ---
 

@@ -2,7 +2,6 @@
 layout: default
 title: Cloudflare
 parent: Firewall
-grand_parent: Exposem serveis a Internet
 nav_order: 3
 ---
 

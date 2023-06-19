@@ -2,7 +2,6 @@
 layout: default
 title: Regles Firewall
 parent: Firewall
-grand_parent: Exposem serveis a Internet
 nav_order: 2
 ---
 # Exposició de ports al món

@@ -2,7 +2,6 @@
 layout: default
 title: Reverse Proxy
 parent: Hipervisor
-grand_parent: Exposem serveis a Internet
 nav_order: 3
 ---
 

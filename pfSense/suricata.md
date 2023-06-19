@@ -2,7 +2,6 @@
 layout: default
 title: IDS/IPS
 parent: Firewall
-grand_parent: Configuram PFSense com a Router / Firewall principal.
 nav_order: 3
 ---
 

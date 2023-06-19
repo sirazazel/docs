@@ -2,7 +2,6 @@
 layout: default
 title: Servei web
 parent: Hipervisor
-grand_parent: Exposem serveis a Internet
 nav_order: 4
 ---
 
