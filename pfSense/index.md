@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Configurar PFSense com a Router / Firewall principal.
+title: Firewall.
 has_children: true
 nav_order: 3
 ---
